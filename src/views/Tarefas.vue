@@ -46,6 +46,7 @@
         campoInput: null,
         tarefas:[
           {titulo: "Ir ao mercado", concluido: false},
+          {titulo: "Ir ao mercado", concluido: true},
         ]
       }
     },
