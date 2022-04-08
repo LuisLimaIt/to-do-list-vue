@@ -1,8 +1,8 @@
 <template>
   <div>
       <v-list-item
-      :class="{'blue lighten-4' : tarefa.concluido}"
-      
+      :class="{'light-blue lighten-4' : tarefa.concluido}"
+      @click="handleChange"
       >
         <template v-slot:default="{}">
             <v-list-item-action>
@@ -19,7 +19,13 @@
 
 <script>
 export default {
-  props:["tarefa"]
+  props:["tarefa"],
+  methods: {
+    handleChange() {
+      // eslint-disable-next-line vue/no-mutating-props
+      this.tarefa.concluido = !this.tarefa.concluido
+    }
+  }
 }
 </script>
 
