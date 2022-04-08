@@ -14,8 +14,18 @@
               :class="{'text-decoration-line-through' : tarefa.concluido}"
               >{{tarefa.titulo}}</v-list-item-title>
             </v-list-item-content>
+
+            <v-list-item-action>
+              <v-btn 
+              icon
+              @click.stop="handleRemoveTask(tarefa.id)"
+              >
+                <v-icon color="grey lighten-1">mdi-information</v-icon>
+              </v-btn>
+            </v-list-item-action>
           </template>
         </v-list-item>
+        <v-divider />
   </div>
 </template>
 
@@ -26,6 +36,9 @@ export default {
     handleChange() {
       // eslint-disable-next-line vue/no-mutating-props
       this.tarefa.concluido = !this.tarefa.concluido
+    },
+    handleRemoveTask(id) {
+      this.$store.commit('removeTask', id)
     }
   }
 }
